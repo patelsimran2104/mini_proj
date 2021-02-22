@@ -1,0 +1,17 @@
+<h1>Student Info</h1>
+
+<%= form_with model: @student do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :address %><br>
+    <%= form.text_area :address %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
