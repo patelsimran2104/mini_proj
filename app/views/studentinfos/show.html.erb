@@ -1,20 +1,64 @@
   
+<h1>Student Info</h1>
+
 <%= form_with model: @studentinfo, url: student_studentinfo_path do |form| %>
+
   <div>
+  <br>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :address %><br>
-    <%= form.text_area :address %>
+  <br>
+    <%= form.label :date_of_birth %><br>
+    <%= form.date_field :dob %>
   </div>
 
   <div>
-    <%= form.submit %>
+  <br>
+    <%= form.label :parentemail %><br>
+    <%= form.text_field :parentemail %>
   </div>
-<% end %>  
+
+
+  <div>
+  <br>
+    <%= form.label :address %><br>
+    <%= form.text_area :address %><br>
+  </div>
+
+  <div>
+  <br>
+    <%= form.label :permenentaddress %><br>
+    <%= form.text_area :permenentaddress %><br>
+  </div>
+  
+  <div>
+  </br>
+  <%= form.radio_button :gender, "Female" %>
+  <%= form.label :female %>
+  <%= form.radio_button :gender, "Male" %>
+  <%= form.label :male %>
+  <%= form.radio_button :gender, "Other" %>
+  <%= form.label :other %>
+  </div>
+
+  <div>
+  <br>
+    <%= form.label :Phone_Number %><br>
+    
+    <%= form.telephone_field :phoneNo %>
+  </div>
+
+  <div>
+  <br>
+    <%= form.label :Current_Sem %><br>
+    <%= form.select :education, ['Sem 1', 'Sem 2']%>
+  </div>
+  
+<% end %>
+
 <ul>
 <%= link_to 'Back', student_path(params[:id]) %> 
   </ul>
-  

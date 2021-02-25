@@ -10,8 +10,9 @@ Rails.application.routes.draw do
     resources :studentinfos 
   end
   resources :students do
-    resources :results 
+    resources :results, except: [:update]
   end
+  post 'students/:id/results/:id' ,to: 'results#update', as: 'edit_result'
   post 'students/:id/studentinfos/new',to: 'studentinfos#create'
   get 'students/index'
 

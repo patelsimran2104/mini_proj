@@ -53,4 +53,3 @@ class StudentinfosController < ApplicationController
         params.require(:studentinfo).permit(:name, :dob, :parentemail, :address, :education, :permanentaddress, :phoneNo, :gender, :address, :id, :student_id)
     end
 end
-
