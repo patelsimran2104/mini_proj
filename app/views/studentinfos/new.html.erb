@@ -1,17 +1,85 @@
 <h1>Student Info</h1>
 
 <%= form_with model: @studentinfo, url: new_student_studentinfo_path do |form| %>
+
   <div>
+  <br>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
+    <% @studentinfo.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
 
   <div>
+  <br>
+    <%= form.label :date_of_birth %><br>
+    <%= form.date_field :dob %>
+    <% @studentinfo.errors.full_messages_for(:dob).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+  <br>
+    <%= form.label :parentemail %><br>
+    <%= form.text_field :parentemail %>
+    <% @studentinfo.errors.full_messages_for(:parentemail).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+
+  <div>
+  <br>
     <%= form.label :address %><br>
-    <%= form.text_area :address %>
+    <%= form.text_area :address %><br>
+    <% @studentinfo.errors.full_messages_for(:address).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
 
   <div>
+  <br>
+    <%= form.label :permenentaddress %><br>
+    <%= form.text_area :permenentaddress %><br>
+    <% @studentinfo.errors.full_messages_for(:permenentaddress).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  
+  <div>
+  </br>
+  <%= form.radio_button :gender, "Female" %>
+  <%= form.label :female %>
+  <%= form.radio_button :gender, "Male" %>
+  <%= form.label :male %>
+  <%= form.radio_button :gender, "Other" %>
+  <%= form.label :other %>
+  <% @studentinfo.errors.full_messages_for(:gender).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+  </div>
+
+  <div>
+  <br>
+    <%= form.label :Phone_Number %><br>
+    
+    <%= form.telephone_field :phoneNo %>
+    <% @studentinfo.errors.full_messages_for(:phoneNo).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+  <br>
+    <%= form.label :Current_Sem %><br>
+    <%= form.select :education, ['Sem 1', 'Sem 2']%>
+  </div>
+
+  <div>
+  <br>
     <%= form.submit %>
   </div>
+  
 <% end %>

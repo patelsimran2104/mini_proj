@@ -25,7 +25,7 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
 
     if @student.save
-      redirect_to @student, notice: "Student was successfully created." 
+      redirect_to new_student_studentinfo_path(@student), notice: "Student was successfully created." 
     else
       render :new
     end
@@ -65,6 +65,6 @@ class StudentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def student_params
-      params.require(:student).permit(:email, :password, :password_confirmation)
+      params.require(:student).permit(:email, :password, :password_confirmation, :id)
     end
 end

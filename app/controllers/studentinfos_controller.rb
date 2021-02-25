@@ -19,7 +19,7 @@ class StudentinfosController < ApplicationController
       @studentinfo = @student.create_studentinfo(studentinfo_params)
       @studentinfo.save
       flash[:notice] = "success"
-      redirect_to student_path(@studentinfo)
+      redirect_to login_path
     end
   
     def edit
@@ -50,7 +50,7 @@ class StudentinfosController < ApplicationController
     #   @studentinfo.student_id = @student.id
     # end
     def studentinfo_params
-        params.require(:studentinfo).permit(:name, :address, :id, :student_id)
+        params.require(:studentinfo).permit(:name, :dob, :parentemail, :address, :education, :permanentaddress, :phoneNo, :gender, :address, :id, :student_id)
     end
 end
 
