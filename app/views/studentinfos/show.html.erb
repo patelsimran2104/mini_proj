@@ -1,0 +1,20 @@
+  
+<%= form_with model: @studentinfo, url: student_studentinfo_path do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :address %><br>
+    <%= form.text_area :address %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>  
+<ul>
+<%= link_to 'Back', student_path(params[:id]) %> 
+  </ul>
+  

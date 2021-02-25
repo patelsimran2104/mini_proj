@@ -1,17 +1,6 @@
-<h1>Student Info</h1>
+<h1>New Student</h1>
 
-<%= form_with model: @student do |form| %>
-  <div>
-    <%= form.label :name %><br>
-    <%= form.text_field :address %>
-  </div>
+<%= render 'form', student: @student %>
+<%= link_to 'already have account?', 'login' %>
 
-  <div>
-    <%= form.label :address %><br>
-    <%= form.text_area :address %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<%= link_to 'Back', students_path %>

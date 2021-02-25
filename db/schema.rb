@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_073421) do
+ActiveRecord::Schema.define(version: 2021_02_24_113819) do
+
+  create_table "results", force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "Studentinfo_id"
+    t.string "subjects"
+    t.string "gread"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["Studentinfo_id"], name: "index_results_on_Studentinfo_id"
+    t.index ["student_id"], name: "index_results_on_student_id"
+  end
 
   create_table "studentinfos", force: :cascade do |t|
+    t.integer "result_id"
+    t.integer "student_id", null: false
     t.string "name"
     t.date "dob"
     t.integer "age"
@@ -23,31 +36,26 @@ ActiveRecord::Schema.define(version: 2021_02_22_073421) do
     t.string "permanentaddress"
     t.string "phoneNo"
     t.string "gender"
+    t.string "password"
     t.string "education"
     t.text "city"
     t.text "state"
     t.string "socialId"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["result_id"], name: "index_studentinfos_on_result_id"
+    t.index ["student_id"], name: "index_studentinfos_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
-    t.string "name"
-    t.date "dob"
-    t.integer "age"
-    t.string "personalemail"
-    t.string "parentemail"
-    t.string "hobby"
-    t.string "address"
-    t.string "permanentaddress"
-    t.string "phoneNo"
-    t.string "gender"
-    t.string "education"
-    t.text "city"
-    t.text "state"
-    t.string "socialId"
+    t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "studentinfo_id"
+    t.index ["email"], name: "index_students_on_email", unique: true
   end
 
+  add_foreign_key "results", "students"
+  add_foreign_key "studentinfos", "students"
 end

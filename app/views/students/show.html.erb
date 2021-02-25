@@ -1,25 +1,10 @@
-<h1>Student Info</h1>
-
-<%= form_with model: @student do |form| %>
-  <div>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :address %><br>
-    <%= form.text_area :address %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<ul>
-  <li><%=  link_to "Edit", edit_student_path(@student) %></li>
-  <li><%= link_to "Destroy", student_path(@student),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %></li>
-  <li><%= link_to "Home", root_path %></li>
-</ul>
+<p id="notice"><%= notice %></p>  
+<p>
+  <strong>Email:</strong>
+  <%= @student.email %>
+</p>
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %> |
+<%= link_to 'logout', logout_path %></p> |
+<%= link_to 'show', student_studentinfo_path(@student) %> |
+<%= link_to 'result show', student_result_path(@student) %>
