@@ -1,6 +1,5 @@
-<h1>Student Info</h1>
 
-<%= form_with model: @studentinfo, url: student_studentinfo_path do |form| %>
+<%= form_with model: @studentinfo, url: new_student_studentinfo_path(student_id: @studentinfo.student.id), method: 'post' do |form| %>
 
   <div>
   <br>
@@ -83,4 +82,3 @@
   </div>
   
 <% end %>
-

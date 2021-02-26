@@ -5,15 +5,17 @@ Rails.application.routes.draw do
   get 'signup', to: "students#new", as: 'signup'
   get 'login', to: "sessions#new", as: 'login'
   get 'logout', to: "sessions#destroy", as: 'logout'
-  resources :students
+  resources :students, except: [:destroy]
+  delete 'students/:id', to: "students#destroy", as: 'delete_student'
   resources :students do
-    resources :studentinfos 
+    resources :studentinfos
   end
   resources :students do
-    resources :results, except: [:update]
+    resources :results, except: [:update, :destroy]
   end
   post 'students/:id/results/:id' ,to: 'results#update', as: 'edit_result'
   post 'students/:id/studentinfos/new',to: 'studentinfos#create'
+  delete 'students/:id/results/:id' ,to: 'results#destroy', as: 'delete_result'
   get 'students/index'
 
 

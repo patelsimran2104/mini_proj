@@ -8,10 +8,16 @@
 
   <div>
     <%= form.label :gread %><br>
-    <%= form.text_area :gread %>
+    <%= form.text_field :gread %>
   </div>
 
   <div>
     <%= form.submit %>
   </div>
 <% end %>
+
+<ul>
+<%= link_to 'Back', student_results_path(params[:id]) %> 
+  </ul>
+
+  

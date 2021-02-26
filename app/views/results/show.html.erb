@@ -1,4 +1,3 @@
-  
 <%= form_with model: @results, url: student_result_path do |form| %>
   <div>
     <%= form.label :subject %><br>
@@ -14,7 +13,7 @@
     <%= form.submit %>
   </div>
 <% end %>  
-<li><%= link_to "Destroy", student_result_path(@result),
+<li><%= link_to "Destroy", delete_result(@result),
                     method: :delete,
                     data: { confirm: "Are you sure?" } %></li>
 <ul>

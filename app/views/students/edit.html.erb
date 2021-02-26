@@ -1,6 +1,27 @@
-<h1>Editing Student</h1>
+<h1>Edit password</h1>
+<%= @student.email %>
 
-<%= render 'form', student: @student %>
-
-<%= link_to 'Show', @student %> |
-<%= link_to 'Back', students_path %>
+<%= form_with(model: @student) do |form| %>    
+  
+    <div class="field">
+      <%= form.label :password %>
+      <%= form.password_field :password %>
+      <% @student.errors.full_messages_for(:password).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation %>
+      <% @student.errors.full_messages_for(:password).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+  
+<%= link_to 'Back', @student %>

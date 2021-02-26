@@ -1,55 +1,54 @@
 class StudentinfosController < ApplicationController
-  # before_action :set_id, only: [:create]
-    def index
-      @studentinfo = Studentinfo.find(params[:student_id])
-      @studentinfos = Studentinfo.all
-    end
+  def index
+    @studentinfo = Studentinfo.find(params[:student_id])
+    @studentinfos = Studentinfo.all
+  end
 
-    def show
-      @student = Student.find(params[:student_id])
-      @studentinfo = @student.studentinfo
-    end
+  def show
+    @student = Student.find(params[:student_id])
+    @studentinfo = @student.studentinfo
+  end
 
-    def new
-      @studentinfo = Studentinfo.new
-    end
+  def new
+    # byebug
+    @studentinfo = Studentinfo.new
+    @studentinfo.student = Student.find(params[:student_id])
+  end
 
-    def create
-      @student = Student.find(params[:id])
-      @studentinfo = @student.create_studentinfo(studentinfo_params)
-      @studentinfo.save
-      flash[:notice] = "success"
-      redirect_to login_path
+  def create
+    # byebug
+    @student = Student.find(params[:id])
+    @studentinfo = @student.create_studentinfo(studentinfo_params)
+    if @studentinfo.save
+      redirect_to student_path(@student)
+    else
+      render 'new'
     end
+  end
   
-    def edit
-      @student = Student.find(params[:id])
-      # @studentinfo = @student.studentinfo
-      # @studentinfo = Student.find(params[:id])
+  def edit
+    @student = Student.find(params[:id])
+  end
+  
+  def update
+    @student = Student.find(params[:id])
+    @studentinfo = @student.studentinfo
+  
+    if @studentinfo.update(studentinfo_params)
+      redirect_to student_studentinfo_path
+    else
+      render :edit
     end
+  end
   
-    def update
-      @student = Student.find(params[:id])
-      @studentinfo = @student.studentinfo
+  def destroy
+    @studentinfo = Studentinfo.find(params[:student_id])
+    @studentinfo.destroy
+    redirect_to student_path
+  end
   
-      if @studentinfo.update(studentinfo_params)
-        redirect_to student_studentinfo_path
-      else
-        render :edit
-      end
-    end
-  
-    def destroy
-      @studentinfo = Studentinfo.find(params[:student_id])
-      @studentinfo.destroy
-      redirect_to student_path
-    end
-  
-    private 
-    # def set_id
-    #   @studentinfo.student_id = @student.id
-    # end
-    def studentinfo_params
-        params.require(:studentinfo).permit(:name, :dob, :parentemail, :address, :education, :permanentaddress, :phoneNo, :gender, :address, :id, :student_id)
-    end
+  private 
+  def studentinfo_params
+    params.require(:studentinfo).permit(:name, :dob, :parentemail, :address, :education, :permanentaddress, :phoneNo, :gender, :address, :id, :student_id)
+  end
 end

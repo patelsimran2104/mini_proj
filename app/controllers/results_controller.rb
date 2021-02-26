@@ -26,7 +26,6 @@ class ResultsController < ApplicationController
   end
   
   def update
-    # byebug
     @result = Result.find(params[:id])
     @student = @result.student
     @result.student_id = @student.id
@@ -40,15 +39,14 @@ class ResultsController < ApplicationController
   
   def destroy
     @student = Student.find(params[:student_id])
-    @result = @student.Result.find(params[:id])
-    @result.destroy
-    redirect_to student_path
+    @result = Result.find(params[:id])
+    if @result.destroy
+      flash[:notice] = "deleted"
+    end
+    redirect_to @student
   end
   
   private 
-  # def set_id
-  #   @studentinfo.student_id = @student.id
-  # end
   def studentinfo_params
     params.require(:result).permit(:subjects, :gread, :id)
   end
