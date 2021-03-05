@@ -38,17 +38,17 @@ class ResultsController < ApplicationController
   end
   
   def destroy
-    byebug
-    @result = Result.find(params[:id])
-    @result.destroy
-    redirect_to student_result_path
-    flash[:notice] = "deleted"
-    # @student = Student.find(params[:student_id])
+    # byebug
     # @result = Result.find(params[:id])
-    # if @result.destroy
-    #   flash[:notice] = "deleted"
-    # end
-    # redirect_to @student
+    # @result.destroy
+    # redirect_to student_result_path(@student)
+    # flash[:notice] = "deleted"
+    @student = Student.find(params[:student_id])
+    @result = Result.find(params[:id])
+    if @result.destroy
+      flash[:notice] = "deleted"
+    end
+    redirect_to @student
   end
   
   private 
