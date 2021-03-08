@@ -10,13 +10,11 @@ class StudentinfosController < ApplicationController
   end
 
   def new
-    # byebug
     @studentinfo = Studentinfo.new
     @studentinfo.student = Student.find(params[:student_id])
   end
 
   def create
-    # byebug
     @student = Student.find(params[:id])
     @studentinfo = @student.create_studentinfo(studentinfo_params)
     if @studentinfo.save
