@@ -1,35 +1,36 @@
+<div class="container">
+<h1 text="center">Signup</h1>
 <%= form_with(model: student) do |form| %>
-
-  <div>
-  <br>
-    <%= form.label :email %><br>
-    <%= form.text_field :email %>
-    <% student.errors.full_messages_for(:email).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
   
-
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-    <% student.errors.full_messages_for(:password).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
+  <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+  <div class="col-sm-0">
+    <%= form.text_field :email, placeholder: "Email" %>
   </div>
-
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
-    <% student.errors.full_messages_for(:password).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
+  <% student.errors.full_messages_for(:email).each do |message| %>
+  <div><%= message %></div>
+  <% end %>  
+  
+  <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+  <div class="col-sm-0">
+    <%= form.password_field :password, placeholder: "Password" %>
   </div>
+  <% student.errors.full_messages_for(:password).each do |message| %>
+  <div><%= message %></div>
+  <% end %>
 
-  <div class="actions">
+  <label for="inputPassword" class="col-sm-2 col-form-label">Password Confirmation </label>
+  <div class="col-sm-0">
+    <%= form.password_field :password_confirmation, placeholder: "Password" %>
+  </div>
+  <% student.errors.full_messages_for(:password_confirmation).each do |message| %>
+  <div><%= message %></div>
+  <% end %>
+  
+  <div class="btn">
     <%= form.submit %>
   </div>
 <% end %>
 
+already have account?<%= link_to 'login', 'login' %>
 
+</div>
