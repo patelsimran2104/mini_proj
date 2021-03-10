@@ -1,17 +1,4 @@
 <h1>Result Info</h1>
 
-<%= form_with model: @result, url: student_results_path do |form| %>
-  <div>
-    <%= form.label :subject %><br>
-    <%= form.text_field :subjects %>
-  </div>
+<%= render 'form', result: @result %>
 
-  <div>
-    <%= form.label :gread %><br>
-    <%= form.text_area :gread %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>

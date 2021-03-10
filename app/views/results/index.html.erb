@@ -1,15 +1,26 @@
-<ul>
-  <% @results.each do |result| %>
-    <li>Subject:
-      <%= result.subjects %> 
-      Gread:
-      <%= result.gread %>   <%= link_to 'Edit', edit_student_result_path(id: result.id, student_id: result.student_id) %>
-      <%= button_to 'destroy', delete_result_path(id: result.id, student_id: result.student_id), confirm: 'Are you sure?', method: :delete %>
-    </li>
-    </a>  
-      
-  <% end %>
-</ul>
 
-<%= link_to "add student's result", new_student_result_path(@student)%><br>
+<p id="notice"><%= notice %></p>
+
+<h1>Result</h1>
+
+<table id="bands">
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th colspan="15"></th>
+      <th>Gread</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <%= render partial: 'result', collection: @results%>
+  </tbody>
+</table>
+
+<br>
+
+<div id="new-result">
+<%= link_to "add student's result", new_student_result_path(@student), remote: true%><br>
+</div>
 <%= link_to 'Back to homepage', student_path(params[:student_id]) %>
+
