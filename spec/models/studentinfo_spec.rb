@@ -7,4 +7,5 @@ RSpec.describe Studentinfo, type: :model do
     expect(studentinfo).to be_valid
   end
   
+  
 end
