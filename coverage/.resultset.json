@@ -7,6 +7,12 @@
           null,
           1,
           null,
+          2,
+          null,
+          1,
+          1,
+          null,
+          null,
           null
         ]
       },
@@ -342,12 +348,22 @@
           null
         ]
       },
-      "/home/simran/Documents/ruby_proj/mini_proj/spec/factories/student.rb": {
+      "/home/simran/Documents/ruby_proj/mini_proj/spec/factories/result.rb": {
         "lines": [
           1,
           1,
           2,
-          2,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/simran/Documents/ruby_proj/mini_proj/spec/factories/student.rb": {
+        "lines": [
+          1,
+          1,
+          4,
+          4,
           null,
           null,
           null,
@@ -367,6 +383,7 @@
           null,
           2,
           null,
+          1,
           null,
           null
         ]
@@ -468,7 +485,11 @@
           1,
           2,
           null,
-          1,
+          null,
+          null,
+          null,
+          null,
+          null,
           1,
           1,
           null,
@@ -504,6 +525,7 @@
           1,
           null,
           null,
+          null,
           null
         ]
       },
@@ -515,7 +537,7 @@
           null,
           1,
           1,
-          1,
+          2,
           null,
           1,
           1,
@@ -524,7 +546,7 @@
           1,
           null,
           1,
-          1,
+          2,
           0,
           null,
           null,
@@ -532,6 +554,6 @@
         ]
       }
     },
-    "timestamp": 1616433060
+    "timestamp": 1616435042
   }
 }

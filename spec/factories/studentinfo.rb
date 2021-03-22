@@ -9,5 +9,6 @@ FactoryBot.define do
 
     dob { Faker::Date.birthday(min_age: 5) }
     
+    association :student
   end
 end
