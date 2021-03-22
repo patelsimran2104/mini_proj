@@ -1,5 +1,5 @@
 <div class="border">
-<%= form_with model: @result, url: student_results_path do |form| %>
+<%= form_for @result,remote: true, url: student_results_path do |form| %>
   <%= form.label :subject %>
   <div class="box">
     <%= form.text_field :subjects %>
@@ -9,7 +9,6 @@
   <div class="box">
     <%= form.text_field :gread %>
   </div>
-  
 
   <div class="button">
     <%= form.submit %>

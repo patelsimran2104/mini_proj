@@ -1,0 +1,19 @@
+<%if logged_in?%>
+
+<nav class="nav">
+  <div class="nav-link active">
+  <%=link_to "edit password", edit_student_path(@student), class:"nav-link "%>
+  </div>
+  <div class="nav-link active">
+  <%=link_to "Student Information", student_studentinfo_path(@student), class:"nav-link"%>
+  </div>
+  <div class="nav-link active">
+  <%=link_to "Result", student_results_path(@student), class:"nav-link"%>
+  </div>
+  <div class="nav-link active">
+  <%= link_to "add student's result", new_student_result_path(@student), class:"nav-link"%><br>
+  </div>
+  
+</nav>
+<%end%>
+

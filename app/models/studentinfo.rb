@@ -7,7 +7,7 @@ class Studentinfo < ApplicationRecord
     record.errors.add(attr, 'must start with upper case') if value =~ /\A[[:lower:]]/
   end
   validates :address, presence: true
-  validates :phoneNo, presence: true, numericality: true, length: { minimum: 10, maximum: 10 }
+  validates :phoneNo, presence: true
   validates :gender, presence: true  
   
   validate :validate_dob
