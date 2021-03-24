@@ -7,5 +7,4 @@ RSpec.describe Result, type: :model do
   it "is valid with valid attributes" do
     expect(result).to be_valid
   end
-  
 end

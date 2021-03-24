@@ -34,7 +34,6 @@ class StudentsController < ApplicationController
   end
 
   def destroy
-    byebug
     @student = Student.find(params[:id])
     @student.destroy
     redirect_to root_path, notice: "Student was successfully destroyed." 
