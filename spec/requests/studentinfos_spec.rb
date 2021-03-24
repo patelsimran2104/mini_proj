@@ -52,7 +52,4 @@ RSpec.describe "Studentinfos", type: :request do
       end
     end
   end
-
-
-
 end
