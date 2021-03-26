@@ -1,7 +1,7 @@
 class StudentinfosController < ApplicationController
   def index
-    @studentinfo = Studentinfo.find(params[:student_id])
-    @studentinfos = Studentinfo.all
+    # @studentinfo = Studentinfo.find(params[:student_id])
+    # @studentinfos = Studentinfo.all
   end
 
   def show
@@ -25,12 +25,13 @@ class StudentinfosController < ApplicationController
   end
   
   def edit
-    @student = Student.find(params[:id])
+    @studentinfo = Studentinfo.find(params[:id])
   end
   
   def update
-    @student = Student.find(params[:id])
-    @studentinfo = @student.studentinfo
+    @studentinfo = Studentinfo.find(params[:id])
+    @student = @studentinfo.student
+    @studentinfo.student_id = @student.id
   
     if @studentinfo.update(studentinfo_params)
       redirect_to student_studentinfo_path

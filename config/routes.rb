@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   resources :students do
     resources :results, except: [:update, :destroy]
   end
-  post 'students/:id/results/:id', to: 'results#update', as: 'edit_result'
-  post 'students/:id/studentinfos/new', to: 'studentinfos#create'
+  post 'students/:student_id/results/:id', to: 'results#update', as: 'edit_result'
+  post 'students/:id/studentinfos/new', to: 'studentinfos#create', as: 'create_student'
   delete 'students/:id/results/:id', to: 'results#destroy', as: 'delete_result'
   get 'students/index'
   # post 'new' => 'studentinfo/:id/create'

@@ -5,8 +5,8 @@ class ResultsController < ApplicationController
   end
 
   def show
-    @student = Student.find(params[:student_id])
-    @result = @student.results
+    # @student = Student.find(params[:student_id])
+    # @result = @student.results
   end
 
   def new
@@ -33,7 +33,7 @@ class ResultsController < ApplicationController
     @result.student_id = @student.id
 
     if @result.update(studentinfo_params)
-      redirect_to student_results_path(@student)
+      redirect_to student_results_path
     else
       render :edit
     end

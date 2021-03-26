@@ -61,10 +61,6 @@ RSpec.describe "Students", type: :request do
       attributes_for(:student)
     end
 
-    # let(:invalid_attributes) do
-    #   attributes_for(:student, email: "abc")
-    # end
-    
     context 'with valid params' do
       it 'updates the user' do
         put "/students/#{student.id}", params: { id: student.id, student: new_attributes }
@@ -82,10 +78,6 @@ RSpec.describe "Students", type: :request do
       before do
         put "/students/#{student.id}", params: { :student => { :email => 'asdfghjk', :password => 'ASDFGH', :password_confirmation=> 'ASDFGH' } }
       end
-
-      # before do
-      #   put "/students/#{student.id}", params: { id: student.id, student: invalid_attributes }
-      # end
 
       it 'updates the user' do
         student.reload

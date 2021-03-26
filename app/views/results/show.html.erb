@@ -13,9 +13,7 @@
     <%= form.submit %>
   </div>
 <% end %>  
-<li><%= link_to "Destroy", delete_result(@result),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %></li>
+<li><%= link_to 'destroy', delete_result_path(id: @results.id, student_id: @results.student_id), method: :delete, data: {confirm: 'Are you sure?', remote: true}, class: "delete" %>
 <ul>
 <%= link_to 'Back', student_path(params[:id]) %> 
   </ul>
